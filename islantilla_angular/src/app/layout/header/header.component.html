@@ -1,0 +1,30 @@
+<!-- <h1>{{ tituloApp }}</h1>
+<button class="btn btn-primary" (click)="onClickSection(1)">
+  FORMULARIO RESERVA
+</button>
+<button class="btn btn-primary" (click)="onClickSection(2)">
+  FORMULARIO CLIENTES
+</button>
+<button class="btn btn-primary" (click)="onClickSection(3)">
+  Formulario ARCHIVO
+</button> -->
+<header>
+  <h1>{{ tituloApp }}</h1>
+  <a class="btn btn-primary" routerLink="/formulario-reserva">
+    FORMULARIO NUEVA RESERVA
+  </a>
+  <a class="btn btn-primary" routerLink="/formulario-cliente">
+    FORMULARIO CLIENTES
+  </a>
+  <a class="btn btn-primary" routerLink="/formulario-guardar">
+    FORMULARIO ARCHIVO
+  </a>
+  <a class="btn btn-primary" routerLink="/tabla-reservas">
+    TABLA DE RESERVAS
+  </a>
+
+  <div *ngIf="this.authService.userLogged$ | async">
+    <a class="btn btn-primary" (click)="logout()"> LOGOUT </a>
+    <div>Icono usuario</div>
+  </div>
+</header>

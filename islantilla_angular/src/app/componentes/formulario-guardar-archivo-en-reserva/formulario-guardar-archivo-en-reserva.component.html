@@ -1,0 +1,41 @@
+<form
+  [formGroup]="saveFileFormGroup"
+  (ngSubmit)="guardarFicheroEnReserva()"
+  class="container mt-4"
+>
+  <section class="mb-3">
+    <!-- Habitacion -->
+    <label for="habitacion" class="form-label">Habitacion</label>
+    <input type="number" formControlName="habitacion" class="form-control" />
+
+    <!-- Fecha de Entrada -->
+    <label for="entrada" class="form-label">Fecha de Entrada</label>
+    <input
+      type="date"
+      name="entrada"
+      id="entrada"
+      formControlName="entrada"
+      class="form-control"
+    />
+
+    <!-- Archivo -->
+    <label for="archivo" class="form-label">Archivo a subir</label>
+    <input
+      type="file"
+      name="archivo"
+      id="archivo"
+      formControlName="archivo"
+      class="form-control"
+      accept=".pdf"
+      (change)="onFileSelected($event)"
+    />
+    <br />
+    <button
+      [disabled]="saveFileFormGroup.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      GUARDAR
+    </button>
+  </section>
+</form>

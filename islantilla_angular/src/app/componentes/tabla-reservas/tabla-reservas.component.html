@@ -1,0 +1,45 @@
+<p *ngIf="loading">Cargando datos</p>
+
+<table *ngIf="!loading" class="table table-primary">
+  <tr>
+    <th>HABITACION</th>
+    <th>NIF</th>
+    <th>FECHA DE ENTRADA</th>
+    <th>NOMBRE CLIENTE</th>
+    <th>PRECIO</th>
+    <th>ENLACES</th>
+  </tr>
+  <tr *ngFor="let reserva of reservas">
+    <td>{{ reserva.hab }}</td>
+    <td>{{ reserva.cliente?.nif }}</td>
+    <td>{{ reserva.cliente?.nombre }}</td>
+    <td>{{ reserva.entrada | date }}</td>
+    <td>{{ reserva.precio }}</td>
+    <td>
+      <button
+        class="btn btn-primary"
+        (click)="navigateTo('/detalle-reserva', reserva.hab, reserva.entrada)"
+      >
+        VER DETALLES
+      </button>
+      <button
+        class="btn btn-primary"
+        (click)="
+          navigateToFormularioReserva(
+            '/formulario-reserva',
+            reserva.hab,
+            reserva.entrada
+          )
+        "
+      >
+        EDITAR
+      </button>
+      <button
+        class="btn btn-primary"
+        (click)="deleteReserva(reserva.hab, reserva.entrada)"
+      >
+        ELIMINAR
+      </button>
+    </td>
+  </tr>
+</table>

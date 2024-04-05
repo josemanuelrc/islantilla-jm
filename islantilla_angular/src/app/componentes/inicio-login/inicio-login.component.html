@@ -1,0 +1,26 @@
+<section>
+  <h2>Bienvenido! Inicie la sesion para poder continuar</h2>
+  <form [formGroup]="loginForm">
+    <label for="nif" class="form-label">NIF</label>
+    <input
+      type="text"
+      name="nif"
+      id="nif"
+      formControlName="nif"
+      placeholder="Introduzca su NIF"
+      class="form-control"
+    />
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      formControlName="password"
+      class="form-control"
+    />
+    <button type="submit" class="btn btn-primary" (click)="login()">
+      INICIAR SESION
+    </button>
+    <p>{{ this.authService.userLogged$ | async }}</p>
+  </form>
+</section>

@@ -1,0 +1,77 @@
+<section>
+  <form [formGroup]="reservaForm">
+    <!-- Campo de Habitación -->
+    <div>
+      <label for="habitacion" class="form-label">Habitación:</label>
+      <input
+        id="habitacion"
+        type="number"
+        formControlName="habitacion"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Campo de Fecha de Entrada -->
+    <div>
+      <label for="fechaEntrada" class="form-label">Fecha de Entrada:</label>
+      <input
+        id="fechaEntrada"
+        type="date"
+        formControlName="fechaEntrada"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Campo de NIF -->
+    <div>
+      <label for="nif" class="form-label">NIF:</label>
+      <input id="nif" type="text" formControlName="nif" class="form-control" />
+    </div>
+
+    <!-- Campo de Precio -->
+    <div>
+      <label for="precio" class="form-label">Precio:</label>
+      <input
+        id="precio"
+        type="number"
+        formControlName="precio"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Campo de Opciones -->
+    <div>
+      <label for="opciones" class="form-label">Opciones:</label>
+      <input
+        id="opciones"
+        type="text"
+        formControlName="opciones"
+        class="form-control"
+      />
+    </div>
+
+    <br />
+
+    <!-- Botón de edicion -->
+    <button
+      *ngIf="editMode"
+      type="submit"
+      [disabled]="reservaForm.invalid"
+      class="btn btn-primary"
+      (click)="onEditReserva()"
+    >
+      EDITAR
+    </button>
+    <!-- Botón de creacion -->
+    <button
+      *ngIf="!editMode"
+      type="submit"
+      [disabled]="reservaForm.invalid"
+      class="btn btn-primary"
+      (click)="onCreateReserva()"
+    >
+      CREAR
+    </button>
+    <p>{{ mensaje }}</p>
+  </form>
+</section>

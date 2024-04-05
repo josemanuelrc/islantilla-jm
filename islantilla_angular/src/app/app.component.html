@@ -1,0 +1,25 @@
+<!-- <app-header
+  [tituloApp]="'Titulo de la Aplicacion'"
+  (onSectionSelected)="onSectionSelected($event)"
+></app-header>
+
+<p>Seccion activa : {{ activeSection }}</p>
+<section class="w-50 p-3 m-5">
+  <app-formularios-clientes
+    *ngIf="activeSection == 1"
+  ></app-formularios-clientes>
+  <app-formulario-reserva *ngIf="activeSection == 2"></app-formulario-reserva>
+  <app-formulario-guardar-archivo-en-reserva
+    *ngIf="activeSection == 3"
+  ></app-formulario-guardar-archivo-en-reserva>
+</section>
+
+<app-footer></app-footer> -->
+<!-- ------------------- -->
+<app-header
+  [tituloApp]="'Gestion de Reservas'"
+  (onSectionSelected)="onSectionSelected($event)"
+></app-header>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
